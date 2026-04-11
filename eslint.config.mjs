@@ -10,7 +10,7 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...compat.extends("next/core-web-vitals", "next/typescript", "prettier"),
   {
     ignores: [
       "node_modules/**",
@@ -18,7 +18,31 @@ const eslintConfig = [
       "out/**",
       "build/**",
       "next-env.d.ts",
+      "storybook-static/**",
+      "coverage/**",
     ],
+  },
+  {
+    rules: {
+      "import/no-restricted-paths": [
+        "error",
+        {
+          zones: [
+            { target: "./src/features", from: "./src/app" },
+            {
+              target: [
+                "./src/components",
+                "./src/hooks",
+                "./src/lib",
+                "./src/types",
+                "./src/utils",
+              ],
+              from: ["./src/features", "./src/app"],
+            },
+          ],
+        },
+      ],
+    },
   },
 ];
 
