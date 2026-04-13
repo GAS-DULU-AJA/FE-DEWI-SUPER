@@ -5,6 +5,8 @@ import { Topbar } from "@/components/layout/topbar";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { AuthGuard } from "@/components/shared/auth-guard";
 
+ export const runtime = 'edge';
+ 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
     <AuthGuard>
