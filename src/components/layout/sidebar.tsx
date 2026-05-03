@@ -19,9 +19,9 @@ export function Sidebar() {
   if (!sidebarOpen) return null;
 
   return (
-    <aside className="bg-background flex h-screen w-64 flex-col border-r">
-      <div className="flex h-16 items-center border-b px-6">
-        <Link href="/dashboard" className="text-xl font-bold">
+    <aside className="bg-sidebar flex h-screen w-64 flex-col border-r border-sidebar-border">
+      <div className="flex h-16 items-center border-b border-sidebar-border px-6">
+        <Link href="/dashboard" className="text-xl font-bold text-sidebar-foreground">
           {siteConfig.name}
         </Link>
       </div>
@@ -45,10 +45,10 @@ function NavItem({ item, pathname }: { item: (typeof mainNav)[number]; pathname:
         <button
           onClick={() => setExpanded(!expanded)}
           className={cn(
-            "flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+            "flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
             isActive
-              ? "bg-accent text-accent-foreground"
-              : "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
+              ? "bg-sidebar-accent text-sidebar-accent-foreground"
+              : "text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
           )}
         >
           <Icon className="h-4 w-4" />
@@ -62,10 +62,10 @@ function NavItem({ item, pathname }: { item: (typeof mainNav)[number]; pathname:
                 key={child.href}
                 href={child.href}
                 className={cn(
-                  "block rounded-md px-3 py-1.5 text-sm transition-colors",
+                  "block rounded-lg px-3 py-1.5 text-sm transition-colors",
                   pathname === child.href
-                    ? "bg-accent text-accent-foreground font-medium"
-                    : "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
+                    ? "bg-sidebar-primary text-sidebar-primary-foreground font-medium"
+                    : "text-sidebar-foreground/60 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
                 )}
               >
                 {child.title}
@@ -81,16 +81,16 @@ function NavItem({ item, pathname }: { item: (typeof mainNav)[number]; pathname:
     <Link
       href={item.href}
       className={cn(
-        "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+        "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
         isActive
-          ? "bg-accent text-accent-foreground"
-          : "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
+          ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-sm"
+          : "text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
       )}
     >
       <Icon className="h-4 w-4" />
       <span>{item.title}</span>
       {item.badge ? (
-        <span className="bg-primary text-primary-foreground ml-auto rounded-full px-2 py-0.5 text-xs">
+        <span className="bg-sidebar-primary/20 text-sidebar-primary-foreground ml-auto rounded-full px-2 py-0.5 text-xs">
           {item.badge}
         </span>
       ) : null}

@@ -1,1 +1,1 @@
-// Settings feature module
+export { WatermarkConfigPanel } from "./components/watermark-config";

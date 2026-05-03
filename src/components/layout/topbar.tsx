@@ -5,6 +5,7 @@ import { Menu, Bell, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAppStore } from "@/stores/app-store";
 import { useAuthStore } from "@/stores/auth-store";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -34,7 +35,7 @@ export function Topbar() {
   }
 
   return (
-    <header className="bg-background flex h-16 items-center justify-between border-b px-6">
+    <header className="bg-card flex h-16 items-center justify-between border-b px-6 shadow-sm">
       <div className="flex items-center gap-4">
         <Button variant="ghost" size="icon" onClick={toggleSidebar}>
           <Menu className="h-5 w-5" />
@@ -45,6 +46,7 @@ export function Topbar() {
         <Button variant="ghost" size="icon">
           <Bell className="h-5 w-5" />
         </Button>
+        <ThemeToggle />
 
         <DropdownMenu>
           <DropdownMenuTrigger>

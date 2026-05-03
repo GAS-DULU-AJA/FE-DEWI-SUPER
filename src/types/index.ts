@@ -57,6 +57,22 @@ export type ContentSlug =
   | "partner-guidelines"
   | "community-guidelines";
 
+export type WatermarkType = "text" | "image";
+export type WatermarkPosition = "center" | "bottom-right" | "bottom-left" | "top-right" | "top-left" | "tiled";
+
+export interface WatermarkConfig {
+  enabled: boolean;
+  type: WatermarkType;
+  text?: string;
+  fontSize?: number;
+  fontColor?: string;
+  opacity?: number;
+  imageUrl?: string;
+  position: WatermarkPosition;
+  padding?: number;
+  scale?: number;
+}
+
 // --- Core Interfaces ---
 export interface AdminUser {
   id: string;

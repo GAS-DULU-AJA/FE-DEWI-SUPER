@@ -21,6 +21,7 @@ import { mockContents } from "@/lib/mock-data";
 import { formatDateTime } from "@/utils/format-date";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { WatermarkConfigPanel } from "@/features/settings";
 
 export default function SettingsPage() {
   const router = useRouter();
@@ -41,6 +42,7 @@ export default function SettingsPage() {
         <TabsList>
           <TabsTrigger value="app">Aplikasi</TabsTrigger>
           <TabsTrigger value="payment">Pembayaran</TabsTrigger>
+          <TabsTrigger value="watermark">Watermark</TabsTrigger>
           <TabsTrigger value="content">Konten Web</TabsTrigger>
         </TabsList>
 
@@ -128,6 +130,10 @@ export default function SettingsPage() {
               </div>
             </CardContent>
           </Card>
+        </TabsContent>
+
+        <TabsContent value="watermark" className="mt-4 space-y-4">
+          <WatermarkConfigPanel />
         </TabsContent>
 
         <TabsContent value="content" className="mt-4 space-y-4">

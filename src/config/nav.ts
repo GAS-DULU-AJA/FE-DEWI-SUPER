@@ -4,6 +4,7 @@ import {
   Shield,
   MapPin,
   ClipboardCheck,
+  Megaphone,
   CreditCard,
   ScrollText,
   Settings,
@@ -43,6 +44,11 @@ export const mainNav: NavItem[] = [
     title: "Approvals",
     href: "/approvals",
     icon: ClipboardCheck,
+  },
+  {
+    title: "Advertisements",
+    href: "/advertisements",
+    icon: Megaphone,
   },
   {
     title: "Transactions",
